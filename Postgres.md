@@ -20,6 +20,10 @@ example
 ```
 psql -h 139.162.187.190 -p 5432 -d rentlord -U postgres -W
 ```
+### Creating a database
+```bash
+$ createdb databasename
+```
 ### PSQL
 #### Show table
 Show table definition including indexes,constraints and triggers
@@ -43,4 +47,8 @@ More detailed table definition including description and physical disk size (psq
 ### Copy table data to CSV file
 ```
 \copy (SELECT * FROM <table_name>) TO 'file_path_and_name.csv' WITH CSV
+```
+### Quit
+```
+\q
 ```
