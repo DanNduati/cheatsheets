@@ -30,9 +30,30 @@ source ~/.bashrc
 ```bash
 mkdir <project name>
 cd <project name>
-cd ~/esp $IDF_PATH/examples/get-started/hello_world .
+cp -r ~/esp $IDF_PATH/examples/get-started/hello_world .
 ```
 ## Configure
+### Setup/refresh esp-idf environment in terminal session
+```bash
+$ get_idf
+```
+### gotchas
+```bash
+$ get_idf
+Adding ESP-IDF tools to PATH...
+WARNING: tool cmake found in path, but failed to run
+Not using an unsupported version of tool openocd-esp32 found in PATH: 0.10.0.
+Checking if Python packages are up to date...
+The following Python requirements are not satisfied:
+click>=5.0
+future>=0.15.2
+pyelftools>=0.22
+Please follow the instructions found in the "Set up the tools" section of ESP-IDF Getting Started Guide
+```
+solution
+```bash
+python -m pip install click>=5.0 future>=0.15.2 pyelftools>=0.22
+```
 ### Set the target 
 This should be done once after opening a new project
 ```bash
