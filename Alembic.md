@@ -9,29 +9,32 @@ alembic init alembic
 The env.py script is part of the generated environment so that the way migrations run is entirely customizable.This is a Python script that is run whenever the alembic migration tool is invoked. At the very least, it contains instructions to configure and generate a SQLAlchemy engine, procure a connection from that engine along with a transaction, and then invoke the migration engine, using the connection as a source of database connectivity.
 - SQLAlchemy url
 - SQLAlchemy declarative base
-```python
+<pre><code>
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
+<strong>
 from app.models import Base
 from app.config import settings
+</strong>
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-#override the sqlalchemy database url
-config.set_main_option("sqlalchemy.url",settings.sqlalchemy_database_uri)
+<strong>#override the sqlalchemy database url
+config.set_main_option("sqlalchemy.url",settings.sqlalchemy_database_uri)</strong>
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = Base.metadata
+<strong>target_metadata = Base.metadata<strong>
+</code></pre>
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
-```
+
 
 ### 3. Create a migration script
 #### Method 1: Manual
