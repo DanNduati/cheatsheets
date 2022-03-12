@@ -31,10 +31,11 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 <strong>target_metadata = Base.metadata<strong>
 </code></pre>
-
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-
+Once these values are added, we can run a command to tell alembic our database exists and to start checking for migrations from this point forward:
+```bash
+alembic stamp head
+```
+An `alembic_version` table is created in the database to track the current version of our models.
 
 ### 3. Create a migration script
 #### Method 1: Manual
